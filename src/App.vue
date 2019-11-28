@@ -15,6 +15,10 @@ export default {
 </script>
 
 <style lang="stylus">
+*
+  box-sizing border-box
+body
+  background-color #ccc
 #app
   font-family 'Avenir', Helvetica, Arial, sans-serif
   -webkit-font-smoothing antialiased
