@@ -1,15 +1,18 @@
 <template>
 	<div>
-		<div class="menu">
-			<input type="file" @change="saveFileContents($event)">
-			<button @click="parseTextIntoParagraphs()">Параграфы</button>
-			<button @click="save()">Save</button>
-		</div>
-		<div class="card-list">
-			<div class="card" v-for="(p, index) in covey.paragraphs">
-				<div class="card__content"> {{ p }} </div>
-				<div class="card__index"> {{ index }} </div>
-				<hr class="card__hr">
+		
+		<div class="container">
+			<div class="menu">
+				<input type="file" @change="saveFileContents($event)">
+				<button @click="parseTextIntoParagraphs()">Параграфы</button>
+				<button @click="save()">Save</button>
+			</div>
+			<hr>
+			<div class="card-list">
+				<div class="card" v-for="(p, index) in covey.paragraphs">
+					<div class="card__content"> {{ p }} </div>
+					<div class="card__index"> {{ index }} </div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -58,36 +61,36 @@
 </script>
 
 <style lang="stylus">
+	@import '../smart-grid.styl'
 	button
 		margin-right 5px	
+	.container
+		wrapper()
+		max-width 540px
+		// background-color #fff
 
 	.menu
 		margin-bottom 20px
+
 	.card-list
-		display flex
-		flex-direction column
+		row-flex()
 
 	.card
+		col()
 		position relative
 		width 500px
-		// padding 10px 20px
-		// margin 4px
-		// background-color #fff
-		transition background-color 0.5s linear
 		&__content
-			// background-color red
-		&__hr
-			// margin-top 5px
+			padding 12px 
+			border-radius 4px
+			transition background-color 0.5s linear
+			&:hover
+				background-color #eadba7
 		&__index
-			display none
+			// display none
 			position absolute
 			right: 5px
 			bottom 5px
 			font-size 0.7em
 			color #999999 
-		&:hover
-			background-color #eadba7
-			&--index
-				display 
 				
 </style>
